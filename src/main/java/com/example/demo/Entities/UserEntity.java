@@ -2,24 +2,23 @@ package com.example.demo.Entities;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "user")
 @Data
 public class UserEntity {
     @Id
-    @GeneratedValue/*(generator = "UUID")
+    @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
-    )*/
+    )
     private  UUID id;
 
     @Column
@@ -41,4 +40,7 @@ public class UserEntity {
 
     @Column
     private Boolean isActive;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<PhoneEntity> phones;
 }
