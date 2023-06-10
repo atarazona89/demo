@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Dtos.Requests.CreateUserRequest;
+import com.example.demo.Dtos.Requests.LoginRequest;
 import com.example.demo.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,15 @@ public class UserController {
     public ResponseEntity<Object> create(@RequestBody CreateUserRequest createUserRequest){
         try {
             return new ResponseEntity<>(userService.createUser(createUserRequest), HttpStatus.CREATED);
+        } catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest){
+        try {
+            return new ResponseEntity<>(userService.login(loginRequest), HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

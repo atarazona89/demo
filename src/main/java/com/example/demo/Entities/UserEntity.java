@@ -19,7 +19,7 @@ public class UserEntity {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    private  UUID id;
+    private UUID id;
 
     @Column
     private String name;
@@ -30,17 +30,18 @@ public class UserEntity {
     @Column
     private String password;
 
-    @Column
+    @Column(name = "created_at")
     @CreationTimestamp
-    private Date create;
+    private Date created;
 
-    @Column(name = "last_login")
+    @Column
     @UpdateTimestamp
     private Date lastLogin;
 
     @Column
     private Boolean isActive;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private List<PhoneEntity> phones;
 }

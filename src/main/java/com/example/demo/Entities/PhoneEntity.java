@@ -10,16 +10,13 @@ import java.io.Serializable;
 public class PhoneEntity implements Serializable {
 
     @Id
-    @ManyToOne(fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
-    private UserEntity user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column
     private Long number;
 
-    @Column
-    private Integer citycode;
+    private Integer cityCode;
 
-    @Column
-    private String countrycode;
+    private String countryCode;
+
 }

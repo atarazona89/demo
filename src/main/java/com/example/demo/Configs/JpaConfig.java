@@ -2,12 +2,10 @@ package com.example.demo.Configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-@Configuration
+
 public class JpaConfig {
 
     @Value(value = "${spring.datasource.driver-class-name}")
@@ -22,7 +20,7 @@ public class JpaConfig {
     @Value("${spring.datasource.password}")
     private String password;
 
-    @Bean
+
     public DataSource dataSource()
     {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
