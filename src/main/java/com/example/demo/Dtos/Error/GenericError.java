@@ -10,7 +10,7 @@ public class GenericError {
     private List<ErrorDetail> error;
 
     public GenericError(ErrorDetail error) {
-        this.error = Arrays.asList(new ErrorDetail[]{error});
+        this.error = Arrays.asList(error);
     }
 
     public GenericError(List<ErrorDetail> error) {
