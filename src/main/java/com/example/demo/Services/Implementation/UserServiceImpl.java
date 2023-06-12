@@ -3,6 +3,7 @@ package com.example.demo.Services.Implementation;
 import com.example.demo.Dtos.Requests.CreateUserRequest;
 import com.example.demo.Dtos.Requests.LoginRequest;
 import com.example.demo.Dtos.Responses.CreateUserResponse;
+import com.example.demo.Dtos.Responses.GenericResponse;
 import com.example.demo.Dtos.Responses.LoginResponse;
 import com.example.demo.Entities.UserEntity;
 import com.example.demo.Repositories.UserRepository;
@@ -10,6 +11,7 @@ import com.example.demo.Services.UserService;
 import com.example.demo.utils.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +27,7 @@ public class UserServiceImpl implements UserService {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public CreateUserResponse createUser(CreateUserRequest createUserRequest) {
+    public GenericResponse createUser(CreateUserRequest createUserRequest) {
         UserEntity userEntity = objectMapper.convertValue(createUserRequest, UserEntity.class);
         String encodedPassword = passwordEncoder.encode(createUserRequest.getPassword());
         userEntity.setPassword(encodedPassword);
@@ -34,11 +36,11 @@ public class UserServiceImpl implements UserService {
         UserEntity save = userRepository.save(userEntity);
         CreateUserResponse response = objectMapper.convertValue(save, CreateUserResponse.class);
         response.setToken(JwtUtil.generateToken(userEntity));
-        return response;
+        return new GenericResponse(HttpStatus.CREATED.value(), HttpStatus.CREATED.toString(), response);
     }
 
     @Override
-    public LoginResponse login(LoginRequest loginRequest) {
+    public GenericResponse login(LoginRequest loginRequest) {
 
         // Generar el token JWT
         UserEntity userEntity = userRepository.findByEmail(loginRequest.getEmail());
@@ -47,8 +49,8 @@ public class UserServiceImpl implements UserService {
             LoginResponse response = objectMapper.convertValue(userEntity, LoginResponse.class);
             response.setToken(token);
 
-            return response;
+            return new GenericResponse(HttpStatus.OK.value(), HttpStatus.OK.toString(), response);
         }
-        return null;
+        return new GenericResponse(HttpStatus.UNAUTHORIZED.value(), "Error en email o contraseña", new LoginResponse());
     }
 }

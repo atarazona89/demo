@@ -2,6 +2,7 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Dtos.Requests.CreateUserRequest;
 import com.example.demo.Dtos.Requests.LoginRequest;
+import com.example.demo.Dtos.Responses.GenericResponse;
 import com.example.demo.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(value = "/")
@@ -24,20 +27,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity<Object> create(@RequestBody CreateUserRequest createUserRequest){
-        try {
-            return new ResponseEntity<>(userService.createUser(createUserRequest), HttpStatus.CREATED);
-        } catch (Exception e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<GenericResponse> create(@Valid @RequestBody CreateUserRequest createUserRequest) {
+        return new ResponseEntity<>(userService.createUser(createUserRequest), HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest){
-        try {
-            return new ResponseEntity<>(userService.login(loginRequest), HttpStatus.OK);
-        } catch (Exception e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest) {
+        return new ResponseEntity<>(userService.login(loginRequest), HttpStatus.OK);
     }
 }

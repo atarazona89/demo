@@ -17,6 +17,9 @@ public class LoginResponse {
         private Boolean isActive;
         private String name;
         private String email;
-        private String password;
+
+        // Por razones de seguridad no enviaré este campo
+        // private String password;
+
         private List<PhoneResponse> phones;
 }
