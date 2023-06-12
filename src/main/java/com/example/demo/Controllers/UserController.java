@@ -22,8 +22,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "health", method = RequestMethod.GET)
-    public ResponseEntity<String> health() {
-        return new ResponseEntity<>("I'm alive", HttpStatus.OK);
+    public ResponseEntity<GenericResponse> health() {
+        return new ResponseEntity<>(new GenericResponse<String>(HttpStatus.OK.value(), "I'm alive", null), HttpStatus.OK);
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
@@ -31,7 +31,7 @@ public class UserController {
         return new ResponseEntity<>(userService.createUser(createUserRequest), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public ResponseEntity<Object> login(@RequestBody LoginRequest loginRequest) {
         return new ResponseEntity<>(userService.login(loginRequest), HttpStatus.OK);
     }

@@ -19,8 +19,8 @@ git clone https://github.com/atarazona89/demo.git
 - Configurar variables de entorno:
 El proyecto requiere algunas variables de entorno para su correcto funcionamiento. Asegúrate de configurar las variables requeridas antes de ejecutar la aplicación.
 ```bash
-export HOME_DB=valor1
-export HOST_DB=valor2
+export HOME_DB=valor1 ## Directorio donde se almacenará la BD
+## export HOST_DB=valor2 ## Host de la BD. Fue usado para pruebas
 export PASSWORD_DB=pasword
 export PROFILE=test
 export USER_DB=user
