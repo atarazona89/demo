@@ -13,7 +13,7 @@ Sigue los pasos a continuación para desplegar el proyecto de Spring Boot con Gr
 
 - Clonar el proyecto: Inicia clonando el repositorio del proyecto en tu máquina local.
 ```bash
-git clone <URL del repositorio>
+git clone https://github.com/atarazona89/demo.git
 ```
 
 - Configurar variables de entorno:
@@ -41,7 +41,7 @@ Esto compilará el proyecto y generará el archivo JAR de la aplicación en el d
 ### Ejecutar la aplicación: 
 Una vez que el proyecto se haya compilado correctamente, puedes ejecutar la aplicación utilizando el siguiente comando:
 ```bash
-java -jar build/libs/nombre-del-proyecto.jar
+java -jar build/libs/demo-0.0.1-SNAPSHOT-plain.jar
 ```
 Asegúrate de reemplazar nombre-del-proyecto con el nombre real del archivo JAR generado.
 
