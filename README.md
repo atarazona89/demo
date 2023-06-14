@@ -75,8 +75,18 @@ curl -L -X POST 'localhost:8080/login' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "email": "alejandro@miMail.com",
-    "password": "foobarbaz"
+    "password": "Afoo2barbaz1"
 }'
+```
+
+## Tests
+Los siguientes tests unitarios están incluidos en la aplicación:
+- UserServiceTests: Contiene tests para los servicios de registro de usuarios y login.
+- 
+Para ejecutar los tests, ejecuta el siguiente comando:
+
+```bash
+gradle test
 ```
 
 
