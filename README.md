@@ -24,6 +24,7 @@ export HOME_DB=valor1 ## Directorio donde se almacenará la BD
 export PASSWORD_DB=pasword
 export PROFILE=test
 export USER_DB=user
+export LOGGER_LEVEL=WARN ## Puede ser INFO, DEBUG, WARN, ERROR
 ```
 (Reemplaza estos valores con los adecuados)
 
