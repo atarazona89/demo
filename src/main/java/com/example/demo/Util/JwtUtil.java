@@ -1,6 +1,6 @@
-package com.example.demo.utils;
+package com.example.demo.Util;
 
-import com.example.demo.Entities.UserEntity;
+import com.example.demo.Entity.UserEntity;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 

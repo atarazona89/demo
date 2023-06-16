@@ -1,4 +1,4 @@
-package com.example.demo.Entities;
+package com.example.demo.Entity;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ public class PhoneEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long identifier;
 
     private Long number;
 

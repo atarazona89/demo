@@ -49,11 +49,11 @@ Asegúrate de reemplazar nombre-del-proyecto con el nombre real del archivo JAR 
 La aplicación ahora se está ejecutando y la API está disponible para su uso. Puedes realizar solicitudes a la API utilizando herramientas como cURL o Postman.
 - Revisión de status:
 ```bash
-curl -L -X GET 'localhost:8080/health'
+curl -L -X GET 'localhost:8080/user/health'
 ```
 - Crear usuario:
 ```bash
-curl -L -X POST 'localhost:8080' \
+curl -L -X POST 'localhost:8080/user' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "name": "Alejandro",
@@ -71,7 +71,7 @@ curl -L -X POST 'localhost:8080' \
 
 - Login:
 ```bash
-curl -L -X POST 'localhost:8080/login' \
+curl -L -X POST 'localhost:8080/user/login' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "email": "alejandro@miMail.com",

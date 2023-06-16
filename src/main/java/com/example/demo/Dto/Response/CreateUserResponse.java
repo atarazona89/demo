@@ -1,6 +1,6 @@
-package com.example.demo.Dtos.Responses;
+package com.example.demo.Dto.Response;
 
-import com.example.demo.Dtos.Requests.PhoneRequest;
+import com.example.demo.Dto.Request.PhoneRequest;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 

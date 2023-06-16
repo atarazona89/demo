@@ -1,4 +1,4 @@
-package com.example.demo.Entities;
+package com.example.demo.Entity;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -19,7 +19,7 @@ public class UserEntity {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    private UUID id;
+    private UUID iddentifier;
 
     @Column
     private String name;

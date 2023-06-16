@@ -1,14 +1,14 @@
 package com.example.demo;
 
-import com.example.demo.Configs.DemoApplication;
-import com.example.demo.Dtos.Requests.CreateUserRequest;
-import com.example.demo.Dtos.Requests.LoginRequest;
-import com.example.demo.Dtos.Responses.GenericResponse;
-import com.example.demo.Dtos.Responses.LoginResponse;
-import com.example.demo.Entities.UserEntity;
-import com.example.demo.Repositories.UserRepository;
-import com.example.demo.Services.Implementation.UserServiceImpl;
-import com.example.demo.utils.JwtUtil;
+import com.example.demo.Config.DemoApplication;
+import com.example.demo.Dto.Request.CreateUserRequest;
+import com.example.demo.Dto.Request.LoginRequest;
+import com.example.demo.Dto.Response.GenericResponse;
+import com.example.demo.Dto.Response.LoginResponse;
+import com.example.demo.Entity.UserEntity;
+import com.example.demo.Repository.UserRepository;
+import com.example.demo.Service.Implementation.UserServiceImpl;
+import com.example.demo.Util.JwtUtil;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

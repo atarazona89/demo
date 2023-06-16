@@ -1,4 +1,4 @@
-package com.example.demo.Dtos.Requests;
+package com.example.demo.Dto.Request;
 
 import lombok.Data;
 

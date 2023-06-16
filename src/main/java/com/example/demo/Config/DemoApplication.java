@@ -1,4 +1,4 @@
-package com.example.demo.Configs;
+package com.example.demo.Config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ComponentScan("com.example.demo.*")
 @EnableAutoConfiguration
-@EnableJpaRepositories("com.example.demo.Repositories")
+@EnableJpaRepositories("com.example.demo.Repository")
 @EntityScan("com.example.demo.Entities")
 public class DemoApplication {
 

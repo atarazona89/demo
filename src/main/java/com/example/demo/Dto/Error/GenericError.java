@@ -1,4 +1,4 @@
-package com.example.demo.Dtos.Error;
+package com.example.demo.Dto.Error;
 
 import lombok.Data;
 
